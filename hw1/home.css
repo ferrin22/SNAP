@@ -1,0 +1,23 @@
+h1 {
+    color: #AA6539;
+    text-align: center;
+}
+h2 {
+    color: #2c4870;
+}
+h3 {
+    color: #479030;
+    text-align: right;
+
+}
+ul {
+    color: #AA6539;
+    text-align: center;
+}
+p {
+    color: black;
+    text-align: center;
+}
+body {
+    background-color: black;
+}
