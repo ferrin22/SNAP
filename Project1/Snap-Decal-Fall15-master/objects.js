@@ -926,11 +926,6 @@ SpriteMorph.prototype.initBlocks = function () {
             spec: '%n \u2212 %n',
             alias: '-'
         },
-        reportPow: {
-            type: 'reporter',
-            category: 'operators',
-            spec: '%n ^ %n'
-        },
         reportProduct: {
             type: 'reporter',
             category: 'operators',
@@ -1142,6 +1137,11 @@ SpriteMorph.prototype.initBlocks = function () {
             category: 'lists',
             spec: 'all but first of %l'
         },
+        reportListSort: {
+            type: 'reporter',
+            category: 'lists',
+            spec: 'Sort %l'
+        },
         reportListLength: {
             type: 'reporter',
             category: 'lists',
@@ -1300,10 +1300,9 @@ SpriteMorph.prototype.blockAlternatives = {
     reportMouseY: ['reportMouseX'],
 
     // operators:
-    reportSum: ['reportDifference', 'reportProduct', 'reportQuotient', 'reportPow'],
+    reportSum: ['reportDifference', 'reportProduct', 'reportQuotient'],
     reportDifference: ['reportSum', 'reportProduct', 'reportQuotient'],
-    reportPow: ['reportDifference', 'reportProduct', 'reportQuotient', 'reportPow'],
-    reportProduct: ['reportDifference', 'reportSum', 'reportQuotient', 'reportPow'],
+    reportProduct: ['reportDifference', 'reportSum', 'reportQuotient'],
     reportQuotient: ['reportDifference', 'reportProduct', 'reportSum'],
     reportLessThan: ['reportEquals', 'reportGreaterThan'],
     reportEquals: ['reportLessThan', 'reportGreaterThan'],
@@ -1984,7 +1983,6 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('reportSum'));
         blocks.push(block('reportDifference'));
-        blocks.push(block('reportPow'));
         blocks.push(block('reportProduct'));
         blocks.push(block('reportQuotient'));
         blocks.push('-');
@@ -2112,6 +2110,7 @@ SpriteMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('reportListItem'));
         blocks.push(block('reportCDR'));
         blocks.push('-');
+        blocks.push(block('reportListSort'));
         blocks.push(block('reportListLength'));
         blocks.push(block('reportListContainsItem'));
         blocks.push('-');
@@ -2228,6 +2227,7 @@ SpriteMorph.prototype.freshPalette = function (category) {
                         'reportCONS',
                         'reportListItem',
                         'reportCDR',
+                        'reportListSort',
                         'reportListLength',
                         'reportListContainsItem',
                         'doAddToList',
@@ -5517,7 +5517,6 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push('-');
         blocks.push(block('reportSum'));
         blocks.push(block('reportDifference'));
-        blocks.push(block('reportPow'));
         blocks.push(block('reportProduct'));
         blocks.push(block('reportQuotient'));
         blocks.push('-');
@@ -5628,6 +5627,7 @@ StageMorph.prototype.blockTemplates = function (category) {
         blocks.push(block('reportListItem'));
         blocks.push(block('reportCDR'));
         blocks.push('-');
+        blocks.push(block('reportListSort'));
         blocks.push(block('reportListLength'));
         blocks.push(block('reportListContainsItem'));
         blocks.push('-');
